@@ -135,7 +135,7 @@ define dspace::setup (
         additional_attributes => {'path'=>'ROOT'},
          notify => Tomcat::Service["${username}"]
       }
-  /* ----   
+     
    #2
   tomcat::config::server::context{"${title}":
         catalina_base => $catalina_base,
@@ -144,7 +144,7 @@ define dspace::setup (
         parent_host => "localhost",
         additional_attributes => {'path'=>'oai'},
       }
- 
+ /* ----
   #3
  tomcat::config::server::context{"${title}":
         catalina_base => $catalina_base,
