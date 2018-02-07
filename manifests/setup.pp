@@ -132,7 +132,7 @@ define dspace::setup (
         context_ensure => 'present',
         doc_base => "/home/${owner}/dspace/webapps/xmlui",
         parent_host => "localhost",
-        additional_attributes => {'path'=>'/'},
+        additional_attributes => {'path'=>'ROOT'},
       }
   /* ----   
    #2
