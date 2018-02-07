@@ -61,8 +61,10 @@ db.name=postgres
 db.driver=org.postgresql.Driver
 db.dialect=org.dspace.storage.rdbms.hibernate.postgres.DSpacePostgreSQL82Dialect
 db.url=jdbc:postgresql://dspacepuppet.crmamqzflhj7.eu-west-1.rds.amazonaws.com:<%= @db_port %>/<%= $db_name %>
-db.username=<%= $db_user %>
-db.password=<%= $db_passwd %>
+#db.username=<%= $db_user %>
+db.username=dspacepuppet
+#db.password=<%= $db_passwd %>
+db.password=dspacepuppet
 db.schema=public
 
 # oracle
