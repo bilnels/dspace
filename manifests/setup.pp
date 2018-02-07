@@ -58,7 +58,7 @@ define dspace::setup (
   $db_user,
   $db_passwd,
   $db_port,
-  $git_repo  = "git@github.com:duraspace/dspacedirect.git",
+  $git_repo  = "https://github.com/DSpace/DSpace.git",
   $git_src_tag = "dspace-${version}",
   $source_url,
   $group = $owner,
@@ -134,7 +134,7 @@ define dspace::setup (
         parent_host => "localhost",
         additional_attributes => {'path'=>'/'},
       }
-  /*    
+  /* ----   
    #2
   tomcat::config::server::context{"${title}":
         catalina_base => $catalina_base,
@@ -193,7 +193,7 @@ define dspace::setup (
         parent_host => "localhost",
         additional_attributes => {'path'=>'swordv2'},
       }
- 
+ -------*/
   ######################################################
   #  SET/Change tomcat's server and HTTP/AJP connectors
   #######################################################
@@ -220,7 +220,7 @@ define dspace::setup (
    additional_attributes => {
     'redirectPort' => '8443'
   },
-  } */
+  } 
   
   ####################################
   # Setup Apache Redirect to Tomcat  #
