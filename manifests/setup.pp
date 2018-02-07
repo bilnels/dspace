@@ -133,6 +133,7 @@ define dspace::setup (
         doc_base => "/home/${owner}/dspace/webapps/xmlui",
         parent_host => "localhost",
         additional_attributes => {'path'=>'ROOT'},
+         notify => Tomcat::Service["${username}"]
       }
   /* ----   
    #2
