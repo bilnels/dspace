@@ -231,7 +231,8 @@ define dspace::setup (
          # Create a new Apache vhost (site) which will redirect (via AJP)
          # requests to the Tomcat instance created above.
          # Also installs/configures mod_shib when Shibboleth is enabled. 
-         dspace::apache_site { $site_name :
+         dspace::apache_site { "${site_name}" :
+           hostname => $title,
            ensure           => present,
            tomcat_ajp_port         => $tomcat_ajp_port,
            #ssl_cert_file    => $ssl_cert_file,
