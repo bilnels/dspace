@@ -135,7 +135,7 @@ exec { "Delete default build.properties in ${src_dir}":
     #timeout   => 18000, # Disable timeout. This build takes a while!
     #logoutput => true,    # Send stdout to puppet log file (if any)
     #notify    => Exec["Install DSpace to ${install_dir}"],  # Notify installation to run
-    require => Exec["Checkout branch ${git_branch}"],
+    require => Exec["Checkout branch ${git_branch} for ${owner}"],
     before  => Exec["Build DSpace installer in ${src_dir}"],
 }
 
@@ -149,7 +149,7 @@ exec { "Delete default build.properties in ${src_dir}":
      group   => $group,
      mode    => '0644',
      content => template("dspace/custom.properties.erb"),
-     require => Exec["Checkout branch ${git_branch}"],
+     require => Exec["Checkout branch ${git_branch} for ${owner}"],
      before  => Exec["Build DSpace installer in ${src_dir}"],
   }
 
@@ -165,7 +165,7 @@ exec { "Delete default build.properties in ${src_dir}":
        group   => $group,
        mode    => '0644',
        source  => $local_config_source,
-       require => Exec["Checkout branch ${git_branch}"],
+       require => Exec["Checkout branch ${git_branch} for ${owner}"],
        before  => Exec["Build DSpace installer in ${src_dir}"],
      }
    }
@@ -177,7 +177,7 @@ exec { "Delete default build.properties in ${src_dir}":
        group   => $group,
        mode    => '0644',
        content => template("dspace/local.cfg.erb"),
-       require => Exec["Checkout branch ${git_branch}"],
+       require => Exec["Checkout branch ${git_branch} for ${owner}"],
        before  => Exec["Build DSpace installer in ${src_dir}"],
      }
 
