@@ -229,6 +229,7 @@ define dspace::setup (
    additional_attributes => {
     'redirectPort' => '8443'
   },
+   notify => Tomcat::Service["${owner}"]
   } 
   
   ####################################
