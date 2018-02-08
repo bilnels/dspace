@@ -128,74 +128,81 @@ define dspace::setup (
   # . Set Dspace WebApps on Tomcat .    #
   #######################################
  #Default 
- tomcat::config::server::context {"${title}":
+ tomcat::config::server::context {"${title}-xmlui":
         catalina_base => $catalina_base,
         context_ensure => 'present',
         parent_host => "localhost",
         doc_base => "/home/${owner}/dspace/webapps/xmlui",
-        additional_attributes => {'path'=>'ROOT'},
-         notify => Tomcat::Service["${username}"]
+        additional_attributes => {'path'=>'/'},
+         notify => Tomcat::Service["${owner}"]
       }
-    /* 
+ 
    #2
-  tomcat::config::server::context{"${title}":
+  tomcat::config::server::context{"${title}-oai":
         catalina_base => $catalina_base,
         context_ensure => 'present',
         doc_base => "/home/${owner}/dspace/webapps/oai",
         parent_host => "localhost",
         additional_attributes => {'path'=>'oai'},
-      }*/
- /* ----
+         notify => Tomcat::Service["${owner}"]
+      }
+
   #3
- tomcat::config::server::context{"${title}":
+ tomcat::config::server::context{"${title}-jspui":
         catalina_base => $catalina_base,
         context_ensure => 'present',
         doc_base => "/home/${owner}/dspace/webapps/jspui",
         parent_host => "localhost",
         additional_attributes => {'path'=>'jspui'},
+          notify => Tomcat::Service["${owner}"]
       }
  
   #4
-  tomcat::config::server::context{"${title}":
+  tomcat::config::server::context{"${title}-rdf":
         catalina_base => $catalina_base,
         context_ensure => 'present',
         doc_base => "/home/${owner}/dspace/webapps/rdf",
         parent_host => "localhost",
         additional_attributes => {'path'=>'rdf'},
+        notify => Tomcat::Service["${owner}"]
       }
   #5
-  tomcat::config::server::context{"${title}":
+  tomcat::config::server::context{"${title}-rest":
         catalina_base => $catalina_base,
         context_ensure => 'present',
         doc_base => "/home/${owner}/dspace/webapps/rest",
         parent_host => "localhost",
         additional_attributes => {'path'=>'rest'},
+        notify => Tomcat::Service["${owner}"]
       }
   #6
-  tomcat::config::server::context{"${title}":
+  tomcat::config::server::context{"${title}-solr":
         catalina_base => $catalina_base,
         context_ensure => 'present',
         doc_base => "/home/${owner}/dspace/webapps/solr",
         parent_host => "localhost",
         additional_attributes => {'path'=>'solr'},
+        notify => Tomcat::Service["${owner}"]
       }
   #7
-  tomcat::config::server::context{"${title}":
+  tomcat::config::server::context{"${title}-sword":
         catalina_base => $catalina_base,
         context_ensure => 'present',
         doc_base => "/home/${owner}/dspace/webapps/sword",
         parent_host => "localhost",
         additional_attributes => {'path'=>'sword'},
+        notify => Tomcat::Service["${owner}"]
       }
   #8
-  tomcat::config::server::context{"${title}":
+  tomcat::config::server::context{"${title}-sword2":
         catalina_base => $catalina_base,
         context_ensure => 'present',
         doc_base => "/home/${owner}/dspace/webapps/swordv2",
         parent_host => "localhost",
         additional_attributes => {'path'=>'swordv2'},
+        notify => Tomcat::Service["${owner}"]
       }
- -------*/
+
   ######################################################
   #  SET/Change tomcat's server and HTTP/AJP connectors
   #######################################################
