@@ -55,6 +55,18 @@ define dspace::install ($owner             = $dspace::owner,
                         $local_config_source = undef,
                         $ensure            = present)
 {
+
+
+
+exec { 'Create Database':
+   #user   => "dspacepuppet",
+   environment => ["PGPASSWORD=${db_passwd}"],
+   command => "psql --host=${db_endpoint} --port=5432  --username=${db_user} --command='CREATE DATABASE ${db_name}'",
+   path => [ '/bin/', '/sbin/' , '/usr/bin/', '/usr/sbin/' ],
+ }
+ 
+ 
+ 
     # Full path to Ant Installer (based on passed in $src_dir)
     $ant_installer_path = "${src_dir}/dspace/target/${ant_installer_dir}"
 
