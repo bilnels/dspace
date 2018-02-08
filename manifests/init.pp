@@ -135,5 +135,10 @@ class dspace(
       class { 'apache':
         default_vhost => false,
         }
+            # Install mod_proxy and mod_proxy_ajp
+      # These modules are needed to proxy all requests to Tomcat
+      class { 'apache::mod::proxy': }
+      class { 'apache::mod::proxy_ajp': }
+    ####################################
  
 }
