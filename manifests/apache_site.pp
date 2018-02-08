@@ -41,11 +41,11 @@ define dspace::apache_site ($hostname        = $name,
   {
     # Present = Install/Setup Apache
     present: {
-
+    /*
       # Install Apache. Turn off default vhost (we want DSpace to be default)
       class { "Apache for ${hostname}":
         default_vhost => false,
-      }
+      } */
 
       # Install mod_proxy and mod_proxy_ajp
       # These modules are needed to proxy all requests to Tomcat
