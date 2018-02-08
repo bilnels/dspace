@@ -43,7 +43,7 @@ define dspace::apache_site ($hostname        = $name,
     present: {
 
       # Install Apache. Turn off default vhost (we want DSpace to be default)
-      class { 'apache':
+      class { "Apache for ${hostname}":
         default_vhost => false,
       }
 
@@ -110,7 +110,7 @@ define dspace::apache_site ($hostname        = $name,
       ->
 
       # Uninstall Apache
-      class { 'apache':
+      class { "Apache for ${hostname}":
         package_ensure => purged,
       }
 
