@@ -57,13 +57,13 @@ define dspace::install ($owner             = $dspace::owner,
 {
 
 
-
+/*
 exec { 'Create Database':
    #user   => "dspacepuppet",
    environment => ["PGPASSWORD=${db_passwd}"],
    command => "psql --host=${db_endpoint} --port=5432  --username=${db_user} --command='CREATE DATABASE ${db_name}'",
    path => [ '/bin/', '/sbin/' , '/usr/bin/', '/usr/sbin/' ],
- }
+ }*/
  
  
  
