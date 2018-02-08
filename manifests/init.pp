@@ -126,6 +126,5 @@ class dspace(
       unless  => "test \$(readlink default-java) = '${java_name}'",
       path    => "/usr/bin:/usr/sbin:/bin",
     }
- }
  
 }
