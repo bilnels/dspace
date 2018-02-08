@@ -97,7 +97,7 @@ define dspace::install ($owner             = $dspace::owner,
 
 #->
 
-    exec { "Cloning DSpace source code into ${src_dir} for ${owner}":
+    exec { "Cloning DSpace source code into ${src_dir}":
         command   => "git init && git remote add origin ${git_repo} && git fetch --all && git checkout -B dspace-5_x origin/dspace-5_x",
         path =>  [ '/bin/', '/sbin/' , '/usr/bin/', '/usr/sbin/' ],
 	creates   => "${src_dir}/.git",
@@ -114,7 +114,7 @@ define dspace::install ($owner             = $dspace::owner,
 ->
 
     # Checkout the specified branch
-    exec { "Checkout branch ${git_branch}" :
+    exec { "Checkout branch ${git_branch} for ${owner}" :
        command => "git checkout ${git_branch}",
        path =>  [ '/bin/', '/sbin/' , '/usr/bin/', '/usr/sbin/' ],
        cwd     => $src_dir, # run command from this directory
@@ -214,7 +214,7 @@ exec { "Delete default build.properties in ${src_dir}":
    # Create initial administrator (if specified)
  if $admin_email and $admin_passwd and $admin_firstname and $admin_lastname and $admin_language
    {
-     exec { "Create DSpace Administrator":
+     exec { "Create DSpace Administrator for site: ${owner}":
        command   => "${install_dir}/bin/dspace create-administrator -e ${admin_email} -f ${admin_firstname} -l ${admin_lastname} -p ${admin_passwd} -c ${admin_language}",
        cwd       => $install_dir,
        user      => $owner,
