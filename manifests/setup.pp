@@ -104,6 +104,7 @@ define dspace::setup (
   dspace::install { "/home/${owner}/dspace":
   src_dir    => $src_dir,
   git_branch => $git_branch,
+  owner => $owner,
   }
   
  #} 
