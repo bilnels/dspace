@@ -134,5 +134,6 @@ class dspace(
    ##################################
       class { 'apache':
         default_vhost => false,
+        }
  
 }
