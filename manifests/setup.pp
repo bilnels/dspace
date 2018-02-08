@@ -90,7 +90,7 @@ define dspace::setup (
   # . CREATE DATABASE .    #
   ##########################
   
- exec { 'create database':
+ exec { 'Create Database':
    #user   => "dspacepuppet",
    environment => ["PGPASSWORD=${db_passwd}"],
    command => "psql --host=${db_endpoint} --port=5432  --username=${db_user} --command='CREATE DATABASE ${db_name}'",
