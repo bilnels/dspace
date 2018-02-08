@@ -130,9 +130,11 @@ define dspace::setup (
  tomcat::config::server::context {"${title}":
         catalina_base => $catalina_base,
         context_ensure => 'present',
-        doc_base => "/home/${owner}/dspace/webapps/xmlui",
         parent_host => "localhost",
+        doc_base => "/home/${owner}/dspace/webapps/xmlui",
         additional_attributes => {'path'=>'ROOT'},
+        doc_base => "/home/${owner}/dspace/webapps/oai",
+        additional_attributes => {'path'=>'oai'},
          notify => Tomcat::Service["${username}"]
       }
      
