@@ -126,5 +126,13 @@ class dspace(
       unless  => "test \$(readlink default-java) = '${java_name}'",
       path    => "/usr/bin:/usr/sbin:/bin",
     }
+    
+ ->
+   #################################
+   # Install apache by default
+   # Install Apache. Turn off default vhost (we want DSpace to be default)
+   ##################################
+      class { 'apache':
+        default_vhost => false,
  
 }
