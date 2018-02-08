@@ -33,7 +33,7 @@
 #    git_branch => "master",
 # }
 #
-define dspace::install ($owner             = $dspace::owner,
+class dspace::install ($owner             = $dspace::owner,
                         $group             = $dspace::group,
                         $src_dir           = $dspace::src_dir,
                         $install_dir       = $name,
